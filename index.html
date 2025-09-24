@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Georgi Grigorov</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon.ico">
     <style>
         * {
             margin: 0;
@@ -31,12 +38,32 @@
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
         }
 
-        h1 {
+        .header {
             text-align: center;
             margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+        }
+
+        h1 {
             font-size: 2.5rem;
             color: #00ff00;
             text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            margin: 0;
         }
 
         .section {
@@ -143,9 +170,13 @@
                 padding: 1rem;
             }
 
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
             h1 {
                 font-size: 1.8rem;
-                margin-bottom: 1.5rem;
             }
 
             .section {
@@ -186,6 +217,11 @@
                 border-radius: 5px;
             }
 
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
             h1 {
                 font-size: 1.5rem;
             }
@@ -211,7 +247,10 @@
 
 <body>
     <div class="container">
-        <h1>Georgi Grigorov</h1>
+        <div class="header">
+            <img src="assets/gglogo.png" alt="Georgi Grigorov Logo" class="logo">
+            <h1>Georgi Grigorov</h1>
+        </div>
 
         <div class="terminal-prompt">
             > whoami<span class="blinking-cursor">_</span>
