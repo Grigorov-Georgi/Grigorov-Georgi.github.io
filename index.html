@@ -308,6 +308,83 @@
             text-align: center;
         }
 
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+            border: 1px solid #00ff00;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.2);
+            border-color: #66ff66;
+        }
+
+        .project-name {
+            color: #00ff00;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        }
+
+        .project-role {
+            color: #66ff66;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-description {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #00ff00;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background-color: #00ff00;
+            color: #0a0a0a;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
         @media (max-width: 768px) {
             .books-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -326,6 +403,18 @@
             .pagination button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 1rem;
+            }
+
+            .project-name {
+                font-size: 1.1rem;
             }
         }
 
@@ -396,7 +485,7 @@
         </div>
 
         <div class="section">
-            <h2>Social Media</h2>
+            <h2>/links</h2>
             <div class="social-links">
                 <div class="social-item">
                     <h3>GitHub</h3>
@@ -412,12 +501,58 @@
                     <a href="https://www.instagram.com/georgi.grigorov_?igsh=MTQzdGQ1MGducDNueg%3D%3D&utm_source=qr"
                         target="_blank">@georgi.grigorov_</a>
                 </div>
+                <div class="social-item">
+                    <h3>Email</h3>
+                    <a href="mailto:grigorov_georgi@yahoo.com">grigorov_georgi@yahoo.com</a>
+                </div>
             </div>
         </div>
 
-        <div class="section email-section">
-            <h2>Contact</h2>
-            <a href="mailto:grigorov_georgi@yahoo.com">grigorov_georgi@yahoo.com</a>
+        <div class="terminal-prompt">
+            > cd /projects && ls -la<span class="blinking-cursor">_</span>
+        </div>
+
+        <div class="section">
+            <h2>projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-name">/umnikon</div>
+                    <div class="project-role">Co-Founder</div>
+                    <div class="project-description">
+                        Providing cutting-edge AI-enhanced solutions that empower businesses across various industries.
+                        We specialize in developing intelligent systems that streamline operations, enhance
+                        decision-making, and drive innovation through advanced machine learning and automation
+                        technologies.
+                    </div>
+                    <a href="https://umnikon.com" target="_blank" class="project-link">Visit Website</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-name">/midnightsun</div>
+                    <div class="project-role">Bachelor Thesis</div>
+                    <div class="project-description">
+                        Design and development of a highly-scalable microservice application. This comprehensive
+                        e-commerce platform demonstrates modern microservices architecture principles, featuring Order
+                        Service, Product Service, Notification Service, and Review & Rating Service with inter-service
+                        communication and containerized deployment.
+                    </div>
+                    <a href="https://github.com/Grigorov-Georgi/midnightsun" target="_blank" class="project-link">View
+                        Repository</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-name">/chip8-emulator</div>
+                    <div class="project-role">Personal Project</div>
+                    <div class="project-description">
+                        A Rust implementation of the CHIP-8 emulator, a simple 8-bit virtual machine designed in the
+                        1970s. This project features accurate instruction set emulation, graphics rendering, keyboard
+                        input handling, and includes classic games. Built with modern Rust practices for performance and
+                        memory safety.
+                    </div>
+                    <a href="https://github.com/Grigorov-Georgi/chip8_emulator" target="_blank"
+                        class="project-link">View Repository</a>
+                </div>
+            </div>
         </div>
 
         <div class="terminal-prompt">
@@ -425,7 +560,7 @@
         </div>
 
         <div class="section">
-            <h2>Scanned Books</h2>
+            <h2>scanned_books</h2>
             <div class="books-grid" id="booksGrid">
             </div>
             <div class="pagination">
