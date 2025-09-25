@@ -269,6 +269,19 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .book-favorite {
+            background-color: #ff6b00;
+            color: #0a0a0a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
         }
 
         .pagination {
@@ -611,6 +624,8 @@
 
     <script>
         const books = [
+            { title: "Konstruktionselemente des Maschinenbaus 1: Grundlagen der Berechnung und Gestaltung von Maschinenelementen (Springer-Lehrbuch)", author: "Berthold Schlecht", status: "read", favorite: true },
+            { title: "Konstruktionselemente des Maschinenbaus 2: Grundlagen von Maschinenelementen für Antriebsaufgaben (Springer-Lehrbuch)", author: "Berthold Schlecht", status: "read", favorite: true },
             { title: "Maus", author: "Art Spiegelman", status: "read" },
             { title: "All Quiet on the Western Front", author: "Erich Maria Remarque", status: "read" },
             { title: "Arch of Triumph", author: "Erich Maria Remarque", status: "read" },
@@ -654,10 +669,11 @@
             currentBooks.forEach(book => {
                 const bookCard = document.createElement('div');
                 bookCard.className = 'book-card';
+                const favoriteTag = book.favorite ? '<span class="book-favorite">personal favorite</span>' : '';
                 bookCard.innerHTML = `
                     <div class="book-title">${book.title}</div>
                     <div class="book-author">${book.author}</div>
-                    <span class="book-status">${book.status}</span>
+                    <span class="book-status">${book.status}</span>${favoriteTag}
                 `;
                 booksGrid.appendChild(bookCard);
             });
